@@ -1,0 +1,21 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual env
+.venv/
+
+# IDEs
+.idea/
+.vscode/
+
+# Local runtime data
+uploads/
+logs/
+data/
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
