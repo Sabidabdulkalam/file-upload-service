@@ -10,11 +10,12 @@ import shutil
 import uuid
 from pathlib import Path
 
-from . import config
-from .exceptions import InvalidFileTypeError, FileAccessError, UploadError
-from .logger import get_logger
-from .models import FileRecord
-from .storage import db
+from src.app import config
+from src.app.exceptions import InvalidFileTypeError, FileAccessError, UploadError
+from src.app.logger import get_logger
+from src.app.models import FileRecord
+from src.app.storage import db
+
 
 log = get_logger(__name__)
 

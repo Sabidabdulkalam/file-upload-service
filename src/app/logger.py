@@ -12,7 +12,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 # Local config import
-from . import config
+from src.app import config
 
 _LOGGER_NAME = "file_upload_service"
 _configured = False
