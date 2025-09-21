@@ -1,6 +1,5 @@
 """
 central, minimal configuration.
-
 We keep configuration tiny and import-safe so any module can use it without
 side effects. Paths are resolved relative to the project root.
 """
