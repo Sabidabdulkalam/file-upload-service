@@ -92,6 +92,14 @@ Run the HTTP server:
 *python -m src.app.server*
 ```
 Then open: http://127.0.0.1:8000/
+> ℹ️ The server keeps running until you stop it manually.  
+> Press **Ctrl+C** in the terminal (or click the red **Stop** button in your IDE) to shut it down.  
+> You will see clean shutdown logs like:
+> ```
+> [INFO] shutting down…
+> [INFO] server stopped cleanly
+> ```
+>
 - Upload .txt or .csv files
 - Success message shows id, lines, and words
 - Records table auto-refreshes (or click Refresh)

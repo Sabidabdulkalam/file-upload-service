@@ -20,6 +20,8 @@ a real framework and stronger security hardening.
 """
 
 from __future__ import annotations
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="cgi")
 
 import io
 import json
@@ -261,6 +263,11 @@ class Handler(BaseHTTPRequestHandler):
             except Exception:
                 pass
 
+    # Route BaseHTTPRequestHandler logs to our app logger instead of stderr
+    def log_message(self, format: str, *args) -> None:
+        # Example: "GET /records 200"
+        log.info("%s - %s", self.client_address[0], format % args)
+
 
 def run(host: str = "127.0.0.1", port: int = 8000) -> None:
     server = HTTPServer((host, port), Handler)
@@ -268,9 +275,10 @@ def run(host: str = "127.0.0.1", port: int = 8000) -> None:
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        log.info("shutting down…")
+            log.info("shutting down…")
     finally:
-        server.server_close()
+            server.server_close()
+            log.info("server stopped cleanly")
 
 
 if __name__ == "__main__":
