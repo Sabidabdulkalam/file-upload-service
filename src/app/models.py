@@ -4,7 +4,7 @@ models.py — simple data model(s) for uploaded file records.
 
 from __future__ import annotations
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -28,7 +28,7 @@ class FileRecord:
     original_name: str
     stored_path: Path
     size_bytes: int
-    uploaded_at: datetime = field(default_factory=lambda: datetime.utcnow())
+    uploaded_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     status: str = "UPLOADED"
     line_count: Optional[int] = None
     word_count: Optional[int] = None
